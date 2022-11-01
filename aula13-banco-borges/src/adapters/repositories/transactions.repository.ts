@@ -33,9 +33,7 @@ export class TransactionsRepository implements ITransactionsRepository {
 
     async list(resourceId: string): Promise<ITransactionEntity[]> {
         const pessoas = this._database.list(this._modelTransactions, {
-            accountSource: {
-                indexId: Number(resourceId)
-            }
+            accountSourceId: Number(resourceId)
         });
         return pessoas;
     }

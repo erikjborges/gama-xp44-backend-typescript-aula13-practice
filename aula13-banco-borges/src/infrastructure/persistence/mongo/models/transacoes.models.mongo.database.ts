@@ -9,6 +9,7 @@ export default mongoose.model(
     new mongoose.Schema({
         date: Date,
         value: `number`,
+        accountSourceId: `number`,
         status: `string`,
         accountSource: Object,
         type: `string`,

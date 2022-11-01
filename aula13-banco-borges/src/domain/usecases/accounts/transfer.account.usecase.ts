@@ -49,6 +49,7 @@ class TransferAccountUseCase implements IUseCase {
                 status: TransactionStatus.Completed,
                 accountSource: sourceAccount,
                 targetSource: targetAccount,
+                accountSourceId: sourceAccount.indexId!,
                 type: TransactionType.Transfer
             };
             transactionsRepository.create(transaction);

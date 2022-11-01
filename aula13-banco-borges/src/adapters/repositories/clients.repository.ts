@@ -50,6 +50,17 @@ export class ClientsRepository implements IClientsRepository {
         }
     }
 
+    async readByUserPass(user: string, pass: string): Promise<ClientEntity | undefined> {
+        try{
+            const pessoa = await this._database.readByWhere(this._modelPessoas, { email: user, senha: pass });
+            console.log(pessoa);
+            console.log(modelsToEntities(pessoa));
+            return modelsToEntities(pessoa);
+        } catch(err){
+            throw new Error((err as Error).message);
+        }
+    }
+
     async create(resource: ClientEntity): Promise<ClientEntity> {
 
         const { pessoa, pessoaFisica, pessoaJuridica, endereco } = entitiesToModels(resource);

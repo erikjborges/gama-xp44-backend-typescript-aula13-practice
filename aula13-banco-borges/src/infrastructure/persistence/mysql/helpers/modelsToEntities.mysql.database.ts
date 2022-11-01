@@ -32,7 +32,7 @@ export default function (pessoa: any): ClientEntity | undefined {
         (client as IPessoaJuridicaEntity).razaoSocial = pessoa.pessoaJuridica.razaoSocial;
         (client as IPessoaJuridicaEntity).cnpj = pessoa.pessoaJuridica.cnpj;
     } else {
-        return;
+        return (client as ClientEntity);
     }
 
     return (client as ClientEntity);

@@ -37,7 +37,8 @@ class WithdrawAccountUseCase implements IUseCase {
             value: data.value,
             status: TransactionStatus.Completed,
             accountSource: account,
-            type: TransactionType.Withdraw
+            type: TransactionType.Withdraw,
+            accountSourceId: account.indexId!,
         };
         transactionsRepository.create(transaction);
         return accountsRepository.updateById(account);

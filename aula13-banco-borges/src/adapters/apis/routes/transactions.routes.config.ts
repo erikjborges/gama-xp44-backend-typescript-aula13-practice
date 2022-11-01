@@ -12,7 +12,7 @@ export class TransactionsRoutes extends CommonRoutesConfig {
     configureRoutes(): express.Application {
             this.app.route(`/accounts/:accountId/transactions`)
                         .get(
-                            AccountsMiddleware.validateAccountExists,
+                            // AccountsMiddleware.validateAccountExists,
                             transactionsController.listTransactions
                             );
 

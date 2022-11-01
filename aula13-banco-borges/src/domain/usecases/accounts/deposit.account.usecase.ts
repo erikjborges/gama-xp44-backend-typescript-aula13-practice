@@ -25,6 +25,7 @@ class DepositAccountUseCase implements IUseCase {
             date: new Date(),
             value: data.value,
             status: TransactionStatus.Completed,
+            accountSourceId: account.indexId!,
             accountSource: account,
             type: TransactionType.Deposit,
             envelope: 123

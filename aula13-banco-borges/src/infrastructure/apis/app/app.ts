@@ -1,5 +1,6 @@
 import express from 'express';
 import * as http from 'http';
+import path from "path";
 
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
@@ -8,6 +9,7 @@ import { debug } from 'debug';
 
 import { CommonRoutesConfig } from '../../../adapters/apis/routes/common.routes.config';
 import { ClientsRoutes } from '../../../adapters/apis/routes/clients.routes.config';
+import { AuthRoutes } from '../../../adapters/apis/routes/auth.routes.config';
 import { AccountsRoutes } from '../../../adapters/apis/routes/accounts.routes.config';
 import { TransactionsRoutes } from '../../../adapters/apis/routes/transactions.routes.config';
 
@@ -20,6 +22,7 @@ const debugLog: debug.IDebugger = debug('app');
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
+app.use('/static', express.static(path.resolve('uploads')));
 
 const loggerOptions: expressWinston.LoggerOptions = {
     transports: [new winston.transports.Console()],
@@ -38,6 +41,7 @@ app.use(expressWinston.logger(loggerOptions));
 
 routes.push(new ClientsRoutes(app));
 routes.push(new AccountsRoutes(app));
+routes.push(new AuthRoutes(app));
 routes.push(new TransactionsRoutes(app));
 
 const runningMessage = `Servidor rodando na porta ${port}`;

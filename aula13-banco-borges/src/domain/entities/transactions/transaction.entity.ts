@@ -8,5 +8,6 @@ export interface ITransactionEntity {
     value: number,
     status: TransactionStatus,
     accountSource: AccountEntity,
-    type: TransactionType
+    type: TransactionType,
+    accountSourceId: number,
 }

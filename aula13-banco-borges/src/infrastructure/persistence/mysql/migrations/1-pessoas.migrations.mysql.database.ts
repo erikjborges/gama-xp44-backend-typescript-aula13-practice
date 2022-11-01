@@ -10,6 +10,8 @@ export default {
                 field: 'idpessoa'
             },
             cep: Sequelize.DataTypes.STRING,
+            email: Sequelize.DataTypes.STRING,
+            senha: Sequelize.DataTypes.STRING,
             limiteCredito: Sequelize.DataTypes.INTEGER,
             observacoes: Sequelize.DataTypes.TEXT
         })
