@@ -16,8 +16,8 @@ export class MongoDatabase implements IDatabase {
         this._user = mongoConfig.user!;
         this._pass = mongoConfig.pass!;
         this._port = mongoConfig.port;
-        console.log(`mongodb+srv://${this._user}:${this._pass}@${this._host}:${this._port}/${this._db}?authSource=admin`);
-        mongoose.connect(`mongodb://${this._user}:${this._pass}@${this._host}:${this._port}/${this._db}?authSource=admin`);
+        // console.log(`mongodb+srv://${this._user}:${this._pass}@${this._host}:${this._port}/${this._db}?authSource=admin`);
+        // mongoose.connect(`mongodb://${this._user}:${this._pass}@${this._host}:${this._port}/${this._db}?authSource=admin`);
     }
 
     public static getInstance(): MongoDatabase {
